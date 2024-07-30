@@ -8,6 +8,7 @@ COPY . .
 
 # Install dependencies
 RUN npm install
+RUN npm install express
 
 # Expose the application port
 EXPOSE 3000
