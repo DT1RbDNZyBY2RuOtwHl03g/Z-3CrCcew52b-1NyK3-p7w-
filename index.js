@@ -6,6 +6,20 @@ const cron = require('cron');
 const sqlite3 = require('sqlite3').verbose();
 const mongoose = require('mongoose');
 
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Hello, world!',
+  })
+})
+
+app.listen(port, () => {
+  console.log(`App is listening on port ${port}`)
+})
+
 // Initialize the bot with token from environment variable
 const token = process.env.TELEGRAM_BOT_TOKEN || process.env['TELEGRAM_BOT_TOKEN'];
 const bot = new TelegramBot(token, { polling: true });
